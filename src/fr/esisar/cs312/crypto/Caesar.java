@@ -13,12 +13,12 @@ public class Caesar implements Algo {
 
     @Override
     public String encrypt(String text) {
-        return shiftText(text, shift);
+        return shiftText(text, this.shift);
     }
 
     @Override
     public String decrypt(String text) {
-        return shiftText(text, -shift);
+        return shiftText(text, -this.shift);
     }
 
     private String shiftText(String text, int shift) {
