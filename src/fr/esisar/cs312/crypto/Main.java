@@ -7,6 +7,7 @@ public class Main {
 		Algo rot13 = new Rot13();
 
 		String first = "Hello World";
-		System.out.println("Rot13: " + rot13.encrypt(first));
+		System.out.println("[E] Rot13: " + rot13.encrypt(first));
+		System.out.println("[D] Rot13: " + rot13.decrypt(rot13.encrypt(first)));
 	}
 }

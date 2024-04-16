@@ -4,6 +4,15 @@ public class Rot13 implements Algo {
 
     @Override
     public String encrypt(String text) {
+        return rot13(text);
+    }
+
+    @Override
+    public String decrypt(String text) {
+        return rot13(text);
+    }
+
+    public String rot13(String text) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < text.length(); i++) {
             char c = text.charAt(i);
@@ -13,11 +22,5 @@ public class Rot13 implements Algo {
         }
         return sb.toString();
     }
-
-    @Override
-    public String decrypt(String text) {
-        return "Not implemented yet...";
-    }
-
 
 }
