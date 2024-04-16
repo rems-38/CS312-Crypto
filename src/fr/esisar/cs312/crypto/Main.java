@@ -11,6 +11,7 @@ public class Main {
 		Algo caesar8 = new Caesar(8);
 		Algo caesar = new Caesar();
 		Algo sub = new Sub();
+		Algo otp = new Otp("HQJWBQLQUWYQOY");
 
 		String first = "Hello World aZ";
 		System.out.println("[E] Rot13: " + rot13.encrypt(first));
@@ -24,6 +25,9 @@ public class Main {
 
 		System.out.println("[E] Sub: " + sub.encrypt(first));
 		System.out.println("[D] Sub: " + sub.decrypt(sub.encrypt(first)));	
+
+		System.out.println("[E] Otp: " + otp.encrypt(first));
+		System.out.println("[D] Otp: " + otp.decrypt(otp.encrypt(first)));	
 	
 	}
 }
