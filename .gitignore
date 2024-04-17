@@ -3,3 +3,6 @@
 
 # executable program
 Main.jar
+
+# binary/compiled files
+**/*.class

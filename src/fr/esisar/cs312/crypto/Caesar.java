@@ -11,14 +11,23 @@ public class Caesar implements Algo {
         this(1);
     }
 
+    public void setKey(int shift) {
+        this.shift = shift;
+    }
+    
     @Override
     public String encrypt(String text) {
         return shiftText(text, this.shift);
     }
-
+    
     @Override
     public String decrypt(String text) {
         return shiftText(text, -this.shift);
+    }
+
+    @Override
+    public void setKey(String shift) {
+        this.shift = Integer.parseInt(shift);
     }
 
     private String shiftText(String text, int shift) {

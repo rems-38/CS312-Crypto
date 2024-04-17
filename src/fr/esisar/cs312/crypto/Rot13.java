@@ -12,6 +12,9 @@ public class Rot13 implements Algo {
         return rot13(text);
     }
 
+    @Override
+    public void setKey(String key) {}
+
     private String rot13(String text) {
         StringBuilder sb = new StringBuilder();
         for (char c : text.toCharArray()) {

@@ -21,15 +21,12 @@ public class Message {
     }
 
     public Message(Algo algo, Boolean encrypt, String plaintext) {
-        this(algo, encrypt, plaintext, null, null);
+        this(algo, encrypt, plaintext, null);
     }
 
     public Message() {
-        this(null, null, null, null, null);
+        this(null, null, null);
     }
-
-
-
 
 }
 

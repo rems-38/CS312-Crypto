@@ -7,6 +7,10 @@ public class Otp implements Algo {
         this.key = key;
     }
 
+    public Otp() {
+        this("");
+    }
+
     @Override
     public String encrypt(String text) {
         return vernam(text, 1);
@@ -15,6 +19,11 @@ public class Otp implements Algo {
     @Override
     public String decrypt(String text) {
         return vernam(text, -1);
+    }
+
+    @Override
+    public void setKey(String key) {
+        this.key = key;
     }
 
     private String vernam(String text, int neg) throws IllegalArgumentException {
