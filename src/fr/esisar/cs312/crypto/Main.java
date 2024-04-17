@@ -1,33 +1,41 @@
 package fr.esisar.cs312.crypto;
 
-import java.util.Map;
-import java.util.HashMap;
-
 public class Main {
 
 	public static void main(String args[]) {
+		Message m = new Message();
+		String[] names = getNames("src/fr/esisar/cs312/crypto");
 		
-		Algo rot13 = new Rot13();
-		Algo caesar8 = new Caesar(8);
-		Algo caesar = new Caesar();
-		Algo sub = new Sub();
-		Algo otp = new Otp("HQJWBQLQUWYQOY");
+		if (args.length != 3 || args.length != 4) {
+			System.out.println("Usage: -e|-d alg text [args ...]");
+			System.exit(1);
+		}
 
-		String first = "Hello World aZ";
-		System.out.println("[E] Rot13: " + rot13.encrypt(first));
-		System.out.println("[D] Rot13: " + rot13.decrypt(rot13.encrypt(first)));
+		if (args[0].equals("-e")) {
+			m.encrypt = true;
+		} else if (args[0].equals("-d")) {
+			m.encrypt = false;
+		} else {
+			System.out.println("Usage: -e|-d alg text [args ...]");
+			System.exit(1);
+		}
+
+		
+		
+	}
 	
-		System.out.println("[E] Caesar8: " + caesar8.encrypt(first));
-		System.out.println("[D] Caesar8: " + caesar8.decrypt(caesar8.encrypt(first)));
+	private static String[] getNames(String href) {
+		String[] files = new java.io.File(href).list();
+		String[] names = new String[files.length - 2];
+		
+		int i = 0;
+		for (String file : files) {
+			if (file.endsWith(".java") && !file.equals("Main.java") && !file.equals("Algo.java")) {
+				names[i] = file.toLowerCase().replace(".java", "");
+				i++;
+			}
+		}
 
-		System.out.println("[E] Caesar: " + caesar.encrypt(first));
-		System.out.println("[D] Caesar: " + caesar.decrypt(caesar.encrypt(first)));
-
-		System.out.println("[E] Sub: " + sub.encrypt(first));
-		System.out.println("[D] Sub: " + sub.decrypt(sub.encrypt(first)));	
-
-		System.out.println("[E] Otp: " + otp.encrypt(first));
-		System.out.println("[D] Otp: " + otp.decrypt(otp.encrypt(first)));	
-	
+		return names;
 	}
 }

@@ -17,7 +17,7 @@ public class Otp implements Algo {
         return vernam(text, -1);
     }
 
-    private String vernam(String text, int neg) {
+    private String vernam(String text, int neg) throws IllegalArgumentException {
         if (this.key.length() < text.length()) {
             throw new IllegalArgumentException("Key must be at least as long as the plaintext");
         }
