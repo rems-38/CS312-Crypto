@@ -5,6 +5,6 @@ public interface Algo {
     String encrypt(String text);
     String decrypt(String text);
 
-    void setKey(String key);
+    void setKey(String key, int textLength) throws InvalidKey;
 
 }

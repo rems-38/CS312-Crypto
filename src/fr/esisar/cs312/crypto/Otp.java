@@ -22,15 +22,14 @@ public class Otp implements Algo {
     }
 
     @Override
-    public void setKey(String key) {
+    public void setKey(String key, int textLength) throws InvalidKey {
+        if (key.length() < textLength) {
+            throw new InvalidKey("Invalid key (must be at least as long as the plaintext)");
+        }
         this.key = key;
     }
 
-    private String vernam(String text, int neg) throws IllegalArgumentException {
-        if (this.key.length() < text.length()) {
-            throw new IllegalArgumentException("Key must be at least as long as the plaintext");
-        }
-
+    private String vernam(String text, int neg) {
         // -------- DONT WORKING YET --------
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < text.length(); i++) {

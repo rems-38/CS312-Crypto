@@ -14,6 +14,14 @@ public class Caesar implements Algo {
     public void setKey(int shift) {
         this.shift = shift;
     }
+
+    public void setKey(String shift) throws InvalidKey {
+        try {
+            this.shift = Integer.parseInt(shift);
+        } catch (NumberFormatException e) {
+            throw new InvalidKey("Invalid key (must be an int)");
+        }
+    }
     
     @Override
     public String encrypt(String text) {
@@ -26,8 +34,8 @@ public class Caesar implements Algo {
     }
 
     @Override
-    public void setKey(String shift) {
-        this.shift = Integer.parseInt(shift);
+    public void setKey(String shift, int textLength) throws InvalidKey {
+        setKey(shift);
     }
 
     private String shiftText(String text, int shift) {

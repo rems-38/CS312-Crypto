@@ -13,7 +13,7 @@ public class Rot13 implements Algo {
     }
 
     @Override
-    public void setKey(String key) {}
+    public void setKey(String key, int textLength) throws InvalidKey {}
 
     private String rot13(String text) {
         StringBuilder sb = new StringBuilder();

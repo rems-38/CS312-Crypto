@@ -27,6 +27,15 @@ public class Sub implements Algo {
         }
     }
 
+    public void setKey(String key) throws InvalidKey {
+        if (key.length() != 26 && key.length() != 52) {
+            throw new InvalidKey("Invalid key (length must be 26 or 52)");
+        }
+        for (int i = 0; i < key.length(); i++) {
+            this.subTab.put(alpha.charAt(i), key.charAt(i));
+        }
+    }
+
     public void setKey(Map<Character, Character> key) {
         this.subTab = key;
     }
@@ -40,15 +49,10 @@ public class Sub implements Algo {
     public String decrypt(String text) {
         return substitute(text, invert());
     }
-    
+
     @Override
-    public void setKey(String key) throws IllegalArgumentException {
-        if (key.length() != 26 && key.length() != 52) {
-            throw new IllegalArgumentException("Key length not valid (must be 26 or 52)");
-        }
-        for (int i = 0; i < key.length(); i++) {
-            this.subTab.put(alpha.charAt(i), key.charAt(i));
-        }
+    public void setKey(String key, int textLength) throws InvalidKey {
+        setKey(key);
     }
 
     private Map<Character, Character> invert() {

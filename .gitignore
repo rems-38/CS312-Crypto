@@ -5,4 +5,4 @@
 Main.jar
 
 # binary/compiled files
-**/*.class
+bin/*
