@@ -21,7 +21,7 @@ public class Main {
 		else if (args[1].equals("caesar")) { m.algo = new Caesar(); }
 		else if (args[1].equals("sub")) { m.algo = new Sub(); }
 		else if (args[1].equals("otp")) { m.algo = new Otp(); }
-		else { throw new InvalidAlg("Invalid alg.\nUsage : -e|-d alg text [args ..."); }
+		else { throw new InvalidAlg("Invalid alg.\nUsage : -e|-d alg text [args ...]"); }
 
 		if (m.encrypt) { m.plaintext = args[2]; }
 		else { m.ciphertext = args[2]; }

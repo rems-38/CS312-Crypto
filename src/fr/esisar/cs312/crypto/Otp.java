@@ -30,19 +30,19 @@ public class Otp implements Algo {
     }
 
     private String vernam(String text, int neg) {
-        // -------- DONT WORKING YET --------
         StringBuilder sb = new StringBuilder();
+        System.out.println("key: " + this.key);
         for (int i = 0; i < text.length(); i++) {
-            char c = text.charAt(i); 
-            if (c >= 'A' && c <= 'Z') {
-                sb.append((char) ((((c - 'A') + neg * (this.key.charAt(i) - 'A')) % 26) + 'A'));
-            }
-            else if (c >= 'a' && c <= 'z') {
-                sb.append((char) ((((c - 'a') + neg * (this.key.charAt(i) - 'a')) % 26) + 'a'));
-            }
+            char c = text.charAt(i);
+            char d = this.key.charAt(i);
+            
+            if (d >= 'a' && d <= 'z') { d = (char) (d - 'a' + 'A'); }
+            else if (d >= 'A' && d <= 'Z') { d = (char) (d - 'A'); }
+            
+            if (c >= 'A' && c <= 'Z') { sb.append((char) ((c - 'A' + neg * d) % 26 + 'A')); }
+            else if (c >= 'a' && c <= 'z') { sb.append((char) ((c - 'a' + neg * d) % 26 + 'a'));}
             else { sb.append(c); }
         }
         return sb.toString();
-        // ---------------------------------
     }
 }
