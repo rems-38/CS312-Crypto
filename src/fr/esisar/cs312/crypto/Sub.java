@@ -7,19 +7,6 @@ public class Sub implements Algo {
     private Map<Character, Character> subTab = new HashMap<>();
     private String alpha = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-    public Sub(Map<Character, Character> key) {
-        this.subTab = key;
-    }
-
-    public Sub(String key) throws IllegalArgumentException {
-        if (key.length() != 26 && key.length() != 52) {
-            throw new IllegalArgumentException("Key length not valid (must be 26 or 52)");
-        }
-        for (int i = 0; i < key.length(); i++) {
-            this.subTab.put(alpha.charAt(i), key.charAt(i));
-        }
-    }
-
     public Sub() {
         int max = alpha.length() - 1;
         for (int i = 0; i < max+1; i++) {
@@ -34,10 +21,6 @@ public class Sub implements Algo {
         for (int i = 0; i < key.length(); i++) {
             this.subTab.put(alpha.charAt(i), key.charAt(i));
         }
-    }
-
-    public void setKey(Map<Character, Character> key) {
-        this.subTab = key;
     }
 
     @Override

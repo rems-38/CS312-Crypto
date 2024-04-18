@@ -3,12 +3,8 @@ package fr.esisar.cs312.crypto;
 public class Otp implements Algo {
     private String key;
 
-    public Otp(String key) {
-        this.key = key;
-    }
-
     public Otp() {
-        this("");
+        this.key = "";
     }
 
     @Override

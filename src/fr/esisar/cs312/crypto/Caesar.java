@@ -3,12 +3,8 @@ package fr.esisar.cs312.crypto;
 public class Caesar implements Algo {
     private int shift;
 
-    public Caesar(int shift) {
-        this.shift = shift;
-    }
-
     public Caesar() {
-        this(1);
+        this.shift = 0;
     }
 
     public void setKey(int shift) {
