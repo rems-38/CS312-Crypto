@@ -1,15 +1,21 @@
-package fr.esisar.cs312.crypto;
+package fr.esisar.cs312.crypto.algos;
+
+import fr.esisar.cs312.crypto.Algo;
+import fr.esisar.cs312.crypto.InvalidKey;
 
 public class Caesar implements Algo {
     private int shift;
 
+    // Constructeur avec un décalage par défaut de 0
     public Caesar() {
         this.shift = 0;
     }
 
+    // Fonction inutile dans notre code fonctionnel mais qui peut toujours être utile...
     public void setKey(int shift) {
         this.shift = shift;
     }
+
 
     public void setKey(String shift) throws InvalidKey {
         try {
@@ -34,6 +40,7 @@ public class Caesar implements Algo {
         setKey(shift);
     }
 
+    // Décalage du texte
     private String shiftText(String text, int shift) {
         StringBuilder sb = new StringBuilder();
         for (char c : text.toCharArray()) {

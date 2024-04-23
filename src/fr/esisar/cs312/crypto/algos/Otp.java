@@ -1,8 +1,12 @@
-package fr.esisar.cs312.crypto;
+package fr.esisar.cs312.crypto.algos;
+
+import fr.esisar.cs312.crypto.Algo;
+import fr.esisar.cs312.crypto.InvalidKey;
 
 public class Otp implements Algo {
     private String key;
 
+    // Constructeur avec une clé par défaut vide
     public Otp() {
         this.key = "";
     }
@@ -25,6 +29,7 @@ public class Otp implements Algo {
         this.key = key;
     }
 
+    // Chiffrement de Vernam
     private String vernam(String text, int neg) {
         StringBuilder sb = new StringBuilder();
         System.out.println("key: " + this.key);
